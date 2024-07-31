@@ -100,7 +100,7 @@ export const MacbookScroll = ({
     return (
         <div
             ref={ref}
-            className="min-h-[200vh]  flex flex-col items-center py-20 md:py-60 sm:py-8 justify-start flex-shrink-0 [perspective:800px] transform scale-[0.8] md:scale-40 sm:scale-100"
+            className="min-h-[200vh]  flex flex-col items-center py-0 sm:py-20 justify-start flex-shrink-0 [perspective:800px] transform scale-[0.65] md:scale-80 sm:scale-100"
         >
             <motion.h2
                 style={{
@@ -163,14 +163,7 @@ export const MacbookScroll = ({
     );
 };
 
-export const Lid = ({
-                        scaleX,
-                        scaleY,
-                        rotate,
-                        translate,
-                        borderRadius,
-                        src,
-                    }: {
+export const Lid = ({}: {
     scaleX: MotionValue<number>;
     scaleY: MotionValue<number>;
     rotate: MotionValue<number>;
@@ -222,18 +215,18 @@ export const Lid = ({
                     {/*</span>*/}
                 </div>
             </div>
-            <motion.div
-                style={{
-                    scaleX: scaleX,
-                    scaleY: scaleY,
-                    rotateX: rotate,
-                    translateY: translate,
-                    borderRadius: borderRadius,
-                    transformStyle: "preserve-3d",
-                    transformOrigin: "top",
-                }}
-                className="h-96 w-[32rem] absolute inset-0 bg-white rounded-2xl p-2"
-            >
+            {/*<motion.div*/}
+            {/*    style={{*/}
+            {/*        scaleX: scaleX,*/}
+            {/*        scaleY: scaleY,*/}
+            {/*        rotateX: rotate,*/}
+            {/*        translateY: translate,*/}
+            {/*        borderRadius: borderRadius,*/}
+            {/*        transformStyle: "preserve-3d",*/}
+            {/*        transformOrigin: "top",*/}
+            {/*    }}*/}
+            {/*    className="h-96 w-[32rem] absolute inset-0 bg-white rounded-2xl p-2"*/}
+            {/*>*/}
                 {/* Moving window emerging from the MacBook Screen */}
                 {/* -----------------------------------------------------------*/}
                 {/*<div className="absolute inset-0 bg-[#272729] rounded-lg" />*/}
@@ -243,7 +236,7 @@ export const Lid = ({
                 {/*    fill*/}
                 {/*    className="object-cover object-left-top absolute rounded-lg inset-0 h-full w-full"*/}
                 {/*/>*/}
-            </motion.div>
+            {/*</motion.div>*/}
         </div>
     );
 };

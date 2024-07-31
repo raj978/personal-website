@@ -1,6 +1,5 @@
 import React from 'react';
 import { MacbookScroll } from '@/components/ui/macbook';
-import ScrollDownIndicator from "@/components/ui/scroll-arrow";
 import Link from 'next/link';
 
 const Page = () => {
@@ -9,8 +8,8 @@ const Page = () => {
             <MacbookScroll
                 title={
                     <div className="flex">
-                        <span>Welcome <br /> Scroll Down to start Exploring!</span>
-                        <ScrollDownIndicator />
+                        <span>Welcome !<br/> This is my Portfolio Site</span>
+                        {/*<ScrollDownIndicator />*/}
                     </div>
                 }
                 badges={[

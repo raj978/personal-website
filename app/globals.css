@@ -68,3 +68,8 @@ html.dark {
   color: white;
   cursor: pointer;
 }
+
+/* Only for the static site */
+body {
+    overflow: hidden;
+}
