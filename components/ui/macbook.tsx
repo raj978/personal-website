@@ -27,8 +27,6 @@ import { IconCaretLeftFilled } from "@tabler/icons-react";
 import { IconCaretDownFilled } from "@tabler/icons-react";
 import Image from "next/image";
 
-// TODO : Make sure that any screen smaler than a desktop is directed to the portfolio directly
-
 export const MacbookScroll = ({
                                   src,
                                   showGradient,
@@ -100,7 +98,7 @@ export const MacbookScroll = ({
     return (
         <div
             ref={ref}
-            className="min-h-[200vh]  flex flex-col items-center py-0 sm:py-20 justify-start flex-shrink-0 [perspective:800px] transform scale-[0.65] md:scale-80 sm:scale-100"
+            className="flex flex-col items-center py-0 sm:py-20 flex-shrink-0 [perspective:800px] transform scale-[0.55] md:scale-80 sm:scale-100"
         >
             <motion.h2
                 style={{
@@ -110,8 +108,7 @@ export const MacbookScroll = ({
                 initial={{ y: -100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 1, ease: "easeInOut" }}
-                className="dark:text-white text-neutral-800 text-3xl font-bold mb-20 text-center"
-            >
+                className="dark:text-white text-neutral-800 text-3xl font-bold mb-20 text-center">
                 {title || (
                     <span>
             This Macbook is built with Tailwindcss. <br /> No kidding.
