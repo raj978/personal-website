@@ -29,4 +29,4 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 - Tailwind CSS
 
 ## Last Updated : 
-Basic Static Website
+Updated Dynamic Site
