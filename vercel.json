@@ -1,7 +1,0 @@
-{
-  "functions": {
-    "email/*": {
-      "maxDuration": 30
-    }
-  }
-}
