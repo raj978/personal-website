@@ -7,6 +7,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ThemeSwitch from "@/components/ui/theme-switch";
 import { Toaster } from "react-hot-toast";
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const jetbrainsMono = JetBrains_Mono({
     subsets: ["latin"],
@@ -31,7 +33,8 @@ export default function RootLayout({
                         <Header />
                         {children}
                         <Footer />
-
+                        <Analytics />
+                        <SpeedInsights />
                         <Toaster position="bottom-center" />
                         <ThemeSwitch />
                     </ActiveSectionContextProvider>
