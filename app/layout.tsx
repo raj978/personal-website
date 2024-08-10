@@ -1,26 +1,42 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import {JetBrains_Mono} from "next/font/google";
 import "./globals.css";
+import ThemeContextProvider from "@/context/theme-context";
+import ActiveSectionContextProvider from "@/context/active-section-context";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import ThemeSwitch from "@/components/ui/theme-switch";
+import { Toaster } from "react-hot-toast";
 
-const inter = Inter({ subsets: ["latin"] });
-
+const jetbrainsMono = JetBrains_Mono({
+    subsets: ["latin"],
+    weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+    variable: "--font-jetbrainsMono",
+});
 export const metadata: Metadata = {
   title: "Rajat's Personal Portfolio",
-  description: "Personal Portfolio of Rajat Gupta built from Scratch",
+  description: "Rajat Gupta is a full-stack developer with 6 years of experience.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <body className={`${inter.className} bg-gray-50 text-gray-950 relative dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}>
+}) {
+    return (
+        <html lang="en" className="!scroll-smooth">
+            <body className={`${jetbrainsMono.variable} bg-gray-50 text-gray-950 relative pt-20 xl:pt-0 sm:pt-20 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}>
+                <ThemeContextProvider>
+                    <ActiveSectionContextProvider>
+                        <Header />
+                        {children}
+                        <Footer />
 
-      {children}
-
-      </body>
-    </html>
-  );
+                        <Toaster position="bottom-center" />
+                        <ThemeSwitch />
+                    </ActiveSectionContextProvider>
+                </ThemeContextProvider>
+            </body>
+        </html>
+    );
 }

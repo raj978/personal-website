@@ -26,8 +26,7 @@ import { IconCommand } from "@tabler/icons-react";
 import { IconCaretLeftFilled } from "@tabler/icons-react";
 import { IconCaretDownFilled } from "@tabler/icons-react";
 import Image from "next/image";
-
-// TODO : Make sure that any screen smaler than a desktop is directed to the portfolio directly
+import CustomHero from "@/components/ui/MacBook-intro/customHero";
 
 export const MacbookScroll = ({
                                   src,
@@ -59,17 +58,7 @@ export const MacbookScroll = ({
         });
     }, [controls]);
 
-    // DEPRECATED code from original Aceternity UI Kit
-    // const [isMobile, setIsMobile] = useState(false);
-    //
-    // useEffect(() => {
-    //     if (window && window.innerWidth < 768) {
-    //         setIsMobile(true);
-    //     }
-    // }, []);
-
     const { width, height } = useViewportSize();
-
     const initialScaleX = 1.2;
     const initialScaleY = 0.6;
     const targetScaleX = width / (32 * 16); // Assuming the initial width is 32rem
@@ -77,21 +66,8 @@ export const MacbookScroll = ({
 
     const scaleX = useTransform(scrollYProgress, [0, 0.3, 0.6], [initialScaleX, initialScaleX, targetScaleX]);
     const scaleY = useTransform(scrollYProgress, [0, 0.3, 0.6], [initialScaleY, initialScaleY, targetScaleY]);
-    const translate = useTransform(scrollYProgress, [0, 0.6], [0, 1500]); // Adjust based on your needs
+    const translate = useTransform(scrollYProgress, [0, 0.65], [0, 1400]); // Adjust based on your needs
     const borderRadius = useTransform(scrollYProgress, [0, 1], ["16px", "-10px"]);
-
-    // DEPRECATED code from original Aceternity UI Kit
-    // const scaleX = useTransform(
-    //     scrollYProgress,
-    //     [0, 0.3],
-    //     [1.2, isMobile ? 1 : 1.5]
-    // );
-    // const scaleY = useTransform(
-    //     scrollYProgress,
-    //     [0, 0.3],
-    //     [0.6, isMobile ? 1 : 1.5]
-    // );
-    // const translate = useTransform(scrollYProgress, [0, 1], [0, 1500]);
 
     const rotate = useTransform(scrollYProgress, [0.1, 0.12, 0.3], [-28, -28, 0]);
     const textTransform = useTransform(scrollYProgress, [0, 0.3], [0, 100]);
@@ -100,7 +76,7 @@ export const MacbookScroll = ({
     return (
         <div
             ref={ref}
-            className="min-h-[200vh]  flex flex-col items-center py-20 md:py-60 sm:py-8 justify-start flex-shrink-0 [perspective:800px] transform scale-[0.8] md:scale-40 sm:scale-100"
+            className="min-h-[200vh] flex flex-col items-center py-20 md:py-60 sm:py-8 justify-start flex-shrink-0 [perspective:800px] transform scale-[0.8] md:scale-40 sm:scale-100"
         >
             <motion.h2
                 style={{
@@ -169,7 +145,6 @@ export const Lid = ({
                         rotate,
                         translate,
                         borderRadius,
-                        src,
                     }: {
     scaleX: MotionValue<number>;
     scaleY: MotionValue<number>;
@@ -178,6 +153,11 @@ export const Lid = ({
     borderRadius: MotionValue<string>;
     src?: string;
 }) => {
+    const ref = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ["start start", "end start"],
+    });
     return (
         <div className="relative [perspective:800px]">
             <div
@@ -194,32 +174,31 @@ export const Lid = ({
                     }}
                     className="absolute inset-0 bg-[#010101] rounded-lg flex items-center justify-center"
                 >
-                    {/*<span>*/}
-                       {/*Stuff here goes on to the screen of the mac after the window leaves */}
-                        {/*-----------------------------------------------------------*/}
-                        <div className="relative h-full w-full">
-                            <video
-                                src="/matrix-loop-vid.mp4"
-                                autoPlay
-                                muted
-                                loop
-                                className="absolute inset-0 w-full h-full object-cover rounded-xl p-3 z-10"
-                            ></video>
-                            <Image
-                                src="/matrix-Rajat.png"
-                                alt="GIF"
-                                height={100}
-                                width={390}
-                                className="absolute inset-0 z-20"
-                                style={{
-                                    top: '50%',
-                                    left: '50%',
-                                    transform: 'translate(-50%, -50%)'
-                                }}
-                                unoptimized={true}
-                            />
-                        </div>
-                    {/*</span>*/}
+                   {/*Stuff here goes on to the screen of the mac after the window leaves */}
+                    {/*-----------------------------------------------------------*/}
+                    <div className="relative h-full w-full">
+                        <video
+                            src="/matrix-loop-vid.mp4"
+                            autoPlay
+                            muted
+                            loop
+                            className="absolute inset-0 w-full h-full object-cover rounded-xl p-3 z-10"
+                        />
+                        <Image
+                            src="/matrix-Rajat.png"
+                            alt="GIF"
+                            height={100}
+                            width={390}
+                            priority={true}
+                            className="absolute inset-0 z-20"
+                            style={{
+                                top: '50%',
+                                left: '50%',
+                                transform: 'translate(-50%, -50%)'
+                            }}
+                            unoptimized={true}
+                        />
+                    </div>
                 </div>
             </div>
             <motion.div
@@ -231,18 +210,21 @@ export const Lid = ({
                     borderRadius: borderRadius,
                     transformStyle: "preserve-3d",
                     transformOrigin: "top",
+                    opacity: useTransform(scrollYProgress, [0.06, 0.1, 0.2], [0,0.89, 1]),
                 }}
-                className="h-96 w-[32rem] absolute inset-0 bg-white rounded-2xl p-2"
+                className="h-96 w-[32rem] absolute inset-0 dark:bg-black bg-gray-100 rounded-2xl"
             >
                 {/* Moving window emerging from the MacBook Screen */}
                 {/* -----------------------------------------------------------*/}
-                {/*<div className="absolute inset-0 bg-[#272729] rounded-lg" />*/}
-                {/*<Image*/}
-                {/*    src={src as string}*/}
-                {/*    alt="aceternity logo"*/}
-                {/*    fill*/}
-                {/*    className="object-cover object-left-top absolute rounded-lg inset-0 h-full w-full"*/}
-                {/*/>*/}
+                <motion.div
+                    style={{
+                        scaleX: useTransform(scaleX, (value) => 1 / value),
+                        scaleY: useTransform(scaleY, (value) => 1 / value),
+                    }}
+                    className="w-full h-full"
+                >
+                    <CustomHero/>
+                </motion.div>
             </motion.div>
         </div>
     );
@@ -558,7 +540,7 @@ export const Keypad = () => {
                         <IconChevronUp className="h-[6px] w-[6px]" />
                     </div>
                     <div className="flex justify-start w-full pl-1">
-                        <span className="block">control</span>
+                        <span className="block text-[4.3px]">control</span>
                     </div>
                 </KBtn>
                 <KBtn className="" childrenClassName="h-full justify-between py-[4px]">
@@ -635,7 +617,7 @@ export const KBtn = ({
         <div
             className={cn(
                 "p-[0.5px] rounded-[4px]",
-                backlit && "bg-white/[0.2] shadow-xl shadow-white"
+                backlit && "bg-white/[0.2] dark:bg-green-500/[0.2] shadow-xl shadow-white dark:shadow-green-500"
             )}
         >
             <div
@@ -652,7 +634,7 @@ export const KBtn = ({
                     className={cn(
                         "text-neutral-200 text-[5px] w-full flex justify-center items-center flex-col",
                         childrenClassName,
-                        backlit && "text-white"
+                        backlit && "text-white dark:text-green-100"
                     )}
                 >
                     {children}
