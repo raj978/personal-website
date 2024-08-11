@@ -77,7 +77,7 @@ export const experiencesData = [
         title: "Quality Assurance Intern",
         location: "Ome",
         description:
-            "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
+            "Developed over 15 testing processes for an iOS app that controls a smart kitchen knob. In doing so, I found and fixed major bugs and design issues by analyzing backend logs with Papertrail, ensuring the app worked smoothly and met user expectations.",
         icon: React.createElement("img", { src:"/assets/ome.png", alt: "Ome Logo", style: { objectFit: "contain" ,height: "100%", width: "100%", overflow: "hidden" } }),
         date: "2022",
         button: "",
@@ -129,7 +129,7 @@ export const projectsData = [
     },
 ] as const;
 
-export const resumeUrl = "https://drive.google.com/file/d/1yamaAFZ5UYfF6ZUextz85sCHtmQMXk6S/view?usp=sharing";
+export const resumeUrl = "https://drive.google.com/file/d/1sD-xJVyGeC4sF7OsKia3i4vA_cX5JoVl/view?usp=sharing";
 
 export const skillsData = [
     "JavaScript",
