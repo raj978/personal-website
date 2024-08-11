@@ -69,7 +69,7 @@ export default function About() {
                 <span className="font-medium">
                 React, Next.js, Node.js, and MongoDB
                 </span>
-                . Along with building things, I also like to I am always looking to
+                . Along with building things, I am always looking to
                 learn and stay updated with new technologies.
             </p>
             <p>
