@@ -121,7 +121,7 @@ export const projectsData = [
     {
         title: "Product Track",
         description:
-            "A public web app for quick analytics on text. It shows word count, character count and social media post limits.",
+            "A webapp made to scrape the web to track prices with the ability to surpass CATPTCHAs and notify users to get the product at the best price.",
         tags: ["React", "Next.js", "MongoDB", "Tailwind", "BrightData", "Cheerio"],
         imageUrl: ProductTrack,
         githubUrl: "https://github.com/raj978/product-track",

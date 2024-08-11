@@ -8,9 +8,11 @@ export const useDynamicPadding = () => {
       const width = window.innerWidth;
       const height = window.innerHeight;
       let padding;
-      const threshold = 768;
+      const threshold = 1200;
       if (width > threshold) {
-         padding = 1100; // Set padding to a fixed value if threshold is exceeded
+         padding = 1300; // Set padding to a fixed value if threshold is exceeded
+      } else if (width > 768) {
+        padding = height * 3;
       } else if (width < 768) {
         padding = 80;
       } else {
