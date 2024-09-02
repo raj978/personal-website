@@ -50,7 +50,7 @@ const CustomHero = () => {
                         <div className="flex flex-row items-center">
                             <Link
                                 href="#contact"
-                                className="group bg-gray-900 text-white px-7 py-3 flex  items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 transition max-w-[230px]"
+                                className="group bg-gray-900 dark:bg-gray-700 text-white px-7 py-3 flex  items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 dark:hover:bg-gray-500 active:scale-105 transition max-w-[230px]"
                                 onClick={() => {
                                     setActiveSection("Contact");
                                     setTimeOfLastClick(Date.now());
