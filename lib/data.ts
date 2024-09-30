@@ -37,8 +37,11 @@ export const experiencesData = [
     {
         title: "Machine Learning Intern",
         location: "Skyhigh Security",
-        description:
-            "Currently working on a Machine Learning model running asynchronously with the CASB big data pipeline",
+        description:[
+            "--> Built Machine Learning model running asynchronously with the CASB big data pipeline improving anomaly detection accuracy by implementing advanced filtering techniques leveraging frameworks such as Apache Spark and Hadoop  ",
+            "--> Reduced false positive security alerts by developing machine learning models using Python, Scikit-learn, and TensorFlow.",
+            ""
+        ],
         icon: React.createElement("img", { src:"/assets/skyhigh.png", alt: "Skyhigh Logo", style: { objectFit: "scale-down" ,height: "100%", width: "100%", overflow: "hidden" } }),
         date: "2024",
         button: "",
@@ -129,7 +132,7 @@ export const projectsData = [
     },
 ] as const;
 
-export const resumeUrl = "https://drive.google.com/file/d/1sD-xJVyGeC4sF7OsKia3i4vA_cX5JoVl/view?usp=sharing";
+export const resumeUrl = "https://drive.google.com/file/d/1W8MzY9DWdDdDms6BJ2sJ4ZDVsoB-Zd4S/view?usp=sharing";
 
 export const skillsData = [
     "JavaScript",
@@ -151,5 +154,6 @@ export const skillsData = [
     "Express",
     "PostgreSQL",
     "AWS",
+    "Hadoop",
     "Docker",
 ] as const;
